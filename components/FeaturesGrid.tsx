@@ -11,14 +11,15 @@ const GridCard = ({ title, description, visual, className }: { title: string, de
 const FeaturesGrid = () => {
   return (
     <section className="py-20">
-      <div className="container mx-auto">
+      <div className="container mx-auto text-center">
+        <h2 className="text-6xl font-bold mb-12">Work and life, playing nice.</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <GridCard
-            className="md:col-span-3 md:row-span-2"
+            className="md:col-span-3"
             title="Connect multiple calendars"
             description="Easily sync work and personal calendars"
             visual={
-              <div className="bg-gray-100 rounded-lg h-full flex flex-col justify-center p-8 space-y-4">
+              <div className="bg-gray-100 rounded-lg h-96 flex flex-col justify-center p-8 space-y-4">
                 <div className="flex items-center">
                   <div className="w-4 h-4 rounded-full bg-blue-500 mr-4"></div>
                   <p>Work</p>
