@@ -1,19 +1,46 @@
-import Image from "next/image";
+import Hero from '@/components/Hero';
+import VideoPlaceholder from '@/components/VideoPlaceholder';
+import FloatingBox from '@/components/FloatingBox';
+import Image from 'next/image';
 
 export default function Home() {
   return (
-    <div>
-      <div className="flex items-center justify-center bg-red-500 rounded-[25px] w-[550px] h-[400px] mt-[100px] mx-auto">
-        <div className="">
-          <Image
-            src="/icons/albums-outline.svg"
-            width={200}
-            height={200}
-            alt=""
-            className="w-30 top-0"
-          />
-        </div>
+    <main className="relative overflow-hidden">
+      <Hero />
+      <FloatingBox
+        color="bg-blue-100"
+        className="top-20 left-40"
+        icon={<Image src="/laptop.svg" alt="Laptop" width={64} height={64} />}
+      />
+      <FloatingBox
+        color="bg-yellow-100"
+        className="top-16 right-32"
+        icon={<Image src="/basketball.svg" alt="Basketball" width={64} height={64} />}
+      />
+      <div className="relative z-10">
+        <VideoPlaceholder />
       </div>
-    </div>
+
+      <FloatingBox
+        color="bg-red-100"
+        className="top-[550px] left-80 z-0"
+        icon={<Image src="/cat.svg" alt="Cat" width={64} height={64} />}
+      />
+      <FloatingBox
+        color="bg-purple-100"
+        className="top-[550px] right-80 z-0"
+        icon={<Image src="/checklist.svg" alt="Checklist" width={64} height={64} />}
+      />
+      <FloatingBox
+        color="bg-orange-100"
+        className="bottom-20 right-40"
+        icon={<Image src="/coffee.svg" alt="Coffee" width={64} height={64} />}
+      />
+      <FloatingBox
+        color="bg-green-100"
+        className="bottom-48 left-32"
+        icon={<Image src="/laptop.svg" alt="Laptop" width={64} height={64} />}
+      />
+    </main>
   );
 }
