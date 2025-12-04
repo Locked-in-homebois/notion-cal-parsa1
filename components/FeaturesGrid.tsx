@@ -1,4 +1,6 @@
 import React from 'react';
+import FloatingBox from './FloatingBox';
+import Image from 'next/image';
 
 const GridCard = ({ title, description, visual, className }: { title: string, description: string, visual: React.ReactNode, className?: string }) => (
   <div className={`bg-white border rounded-xl shadow-sm p-8 ${className}`}>
@@ -11,7 +13,18 @@ const GridCard = ({ title, description, visual, className }: { title: string, de
 const FeaturesGrid = () => {
   return (
     <section className="py-20">
+
       <div className="container mx-auto text-center">
+        <FloatingBox
+          color="bg-lime-100"
+          className="bottom-10 left-10"
+          icon={<Image src="/bicycle.svg" alt="Bicycle" width={64} height={64} />}
+        />
+        <FloatingBox
+          color="bg-amber-100"
+          className="bottom-100 right-10"
+          icon={<Image src="/coffee.svg" alt="Coffee" width={64} height={64} />}
+        />
         <h2 className="text-6xl font-bold mb-12">Work and life, playing nice.</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <GridCard
@@ -60,7 +73,7 @@ const FeaturesGrid = () => {
               </div>
             }
           />
-           <GridCard
+          <GridCard
             title="Integrates with your favorite tools"
             description="Notion Calendar works with Google Meet, Zoom, and more."
             visual={
