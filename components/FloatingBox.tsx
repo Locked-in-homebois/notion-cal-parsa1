@@ -9,7 +9,7 @@ interface FloatingBoxProps {
 const FloatingBox: React.FC<FloatingBoxProps> = ({ color, icon, className }) => {
   return (
     <div className={`absolute ${className}`}>
-      <div className={`relative w-32 h-24 ${color} rounded-lg shadow-sm flex items-center justify-center`}>
+      <div className={`relative w-32 h-24 ${color} rounded-lg shadow-sm flex items-center justify-center -z-50`}>
         {icon}
       </div>
     </div>
