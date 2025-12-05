@@ -6,19 +6,20 @@ import IntegrationsGrid from '@/components/IntegrationsGrid';
 import DownloadSection from '@/components/DownloadSection';
 import QASection from '@/components/QA/QASection';
 import Image from 'next/image';
+import FloatingBox from '@/components/general/FloatingBox';
 
 export default function Home() {
   return (
-    <main className="relative overflow-hidden">
-      <Hero />
-      <div className="relative z-10">
-        <VideoPlaceholder />
-      </div>
-      <FeatureSection />
-      <FeaturesGrid />
-      <IntegrationsGrid />
-      <DownloadSection />
-      <QASection />
-    </main>
+        <main className="relative overflow-hidden">
+          <Hero />
+          <div className="relative z-10">
+            <VideoPlaceholder />
+          </div>
+          <FeatureSection />
+          <FeaturesGrid />
+          <IntegrationsGrid />
+          <DownloadSection />
+          <QASection />
+        </main>
   );
 }
