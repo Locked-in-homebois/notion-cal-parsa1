@@ -15,21 +15,25 @@ const FeatureSection = () => {
     <section className="py-20 relative">
       <FloatingBox
         color="bg-pink-100"
+        accentColor="bg-pink-500"
         className="top-50 left-10"
         icon={<Image src="/cat.svg" alt="Cat" width={64} height={64} />}
       />
       <FloatingBox
         color="bg-indigo-100"
+        accentColor="bg-indigo-500"
         className="top-30 right-40"
         icon={<Image src="/checklist.svg" alt="Checklist" width={64} height={64} />}
       />
       <FloatingBox
         color="bg-lime-100"
+        accentColor="bg-lime-500"
         className="bottom-10 left-10"
         icon={<Image src="/bicycle.svg" alt="Bicycle" width={64} height={64} />}
       />
       <FloatingBox
         color="bg-amber-100"
+        accentColor="bg-amber-500"
         className="bottom-100 right-10"
         icon={<Image src="/coffee.svg" alt="Coffee" width={64} height={64} />}
       />

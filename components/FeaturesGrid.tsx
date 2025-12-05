@@ -18,6 +18,7 @@ const FeaturesGrid = () => {
         <FloatingBox
           color="bg-lime-100"
           className="bottom-10 left-10"
+          accentColor='bg-lime-500'
           icon={<Image src="/bicycle.svg" alt="Bicycle" width={64} height={64} />}
         />
         <FloatingBox

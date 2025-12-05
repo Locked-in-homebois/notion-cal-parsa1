@@ -7,21 +7,25 @@ const Hero = () => {
     <div className="relative flex flex-col items-center justify-center min-h-screen text-center">
       <FloatingBox
         color="bg-blue-100"
+        accentColor="bg-blue-500"
         className="top-20 left-40"
         icon={<Image src="/laptop.svg" alt="Laptop" width={64} height={64} />}
       />
       <FloatingBox
         color="bg-yellow-100"
+        accentColor="bg-yellow-500"
         className="top-48 right-32"
         icon={<Image src="/basketball.svg" alt="Basketball" width={64} height={64} />}
       />
       <FloatingBox
         color="bg-red-100"
+        accentColor="bg-red-500"
         className="bottom-48 left-32"
         icon={<Image src="/cat.svg" alt="Cat" width={64} height={64} />}
       />
       <FloatingBox
         color="bg-purple-100"
+        accentColor="bg-purple-500"
         className="bottom-32 right-1/4"
         icon={<Image src="/checklist.svg" alt="Checklist" width={64} height={64} />}
       />

@@ -12,22 +12,26 @@ export default function Home() {
       <div className="relative z-10">
         <VideoPlaceholder />
         <FloatingBox
-          color="bg-red-100"
+          color="bg-red-50"
+          accentColor="bg-red-500"
           className="top-10 left-40 -z-10"
           icon={<Image src="/cat.svg" alt="Cat" width={64} height={64} />}
         />
         <FloatingBox
-          color="bg-purple-100"
+          color="bg-purple-50"
+          accentColor="bg-purple-500"
           className="-top-10 right-60 -z-10"
           icon={<Image src="/checklist.svg" alt="Checklist" width={64} height={64} />}
         />
         <FloatingBox
-          color="bg-green-100"
+          color="bg-teal-50"
+          accentColor="bg-teal-500"
           className="bottom-10 left-10 -z-10"
           icon={<Image src="/bicycle.svg" alt="Bicycle" width={64} height={64} />}
         />
         <FloatingBox
-          color="bg-orange-100"
+          color="bg-orange-50"
+          accentColor="bg-orange-500"
           className="-bottom-10 right-40 -z-10"
           icon={<Image src="/coffee.svg" alt="Coffee" width={64} height={64} />}
         />
