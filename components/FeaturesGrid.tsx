@@ -1,5 +1,4 @@
 import React from 'react';
-import FloatingBox from './general/FloatingBox';
 import Image from 'next/image';
 
 const GridCard = ({ title, description, visual, className }: { title: string, description: string, visual: React.ReactNode, className?: string }) => (
@@ -15,17 +14,6 @@ const FeaturesGrid = () => {
     <section className="py-20">
 
       <div className="container mx-auto text-center">
-        <FloatingBox
-          color="bg-lime-100"
-          className="bottom-10 left-10"
-          accentColor='bg-lime-500'
-          icon={<Image src="/Icons/bicycle.svg" alt="Bicycle" width={64} height={64} />}
-        />
-        <FloatingBox
-          color="bg-amber-100"
-          className="bottom-100 right-10"
-          icon={<Image src="/Icons/coffee.svg" alt="Coffee" width={64} height={64} />}
-        />
         <h2 className="text-6xl font-bold mb-12">Work and life, playing nice.</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <GridCard

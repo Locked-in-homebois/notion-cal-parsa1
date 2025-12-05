@@ -1,5 +1,4 @@
 import React from 'react';
-import FloatingBox from './general/FloatingBox';
 import Image from 'next/image';
 
 const VideoPlaceholder = () => {

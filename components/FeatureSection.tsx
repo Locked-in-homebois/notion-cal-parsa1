@@ -1,5 +1,4 @@
 import React from 'react';
-import FloatingBox from './general/FloatingBox';
 import Image from 'next/image';
 
 const FeatureCard = ({ title, description, visual, className }: { title: string, description: string, visual: React.ReactNode, className?: string }) => (
@@ -13,30 +12,6 @@ const FeatureCard = ({ title, description, visual, className }: { title: string,
 const FeatureSection = () => {
   return (
     <section className="py-20 relative">
-      <FloatingBox
-        color="bg-pink-100"
-        accentColor="bg-pink-500"
-        className="top-50 left-10"
-        icon={<Image src="/Icons/cat.svg" alt="Cat" width={64} height={64} />}
-      />
-      <FloatingBox
-        color="bg-indigo-100"
-        accentColor="bg-indigo-500"
-        className="top-30 right-40"
-        icon={<Image src="/Icons/checklist.svg" alt="Checklist" width={64} height={64} />}
-      />
-      <FloatingBox
-        color="bg-lime-100"
-        accentColor="bg-lime-500"
-        className="bottom-10 left-10"
-        icon={<Image src="/Icons/bicycle.svg" alt="Bicycle" width={64} height={64} />}
-      />
-      <FloatingBox
-        color="bg-amber-100"
-        accentColor="bg-amber-500"
-        className="bottom-100 right-10"
-        icon={<Image src="/Icons/coffee.svg" alt="Coffee" width={64} height={64} />}
-      />
       <div className="container mx-auto text-center">
         <h2 className="text-6xl font-bold mb-4">Time management, simplified.</h2>
         <p className="text-xl text-gray-500 mb-12">Designed for focus. Built for speed.</p>
