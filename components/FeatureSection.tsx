@@ -11,10 +11,10 @@ const FeatureCard = ({ title, description, visual, className }: { title: string,
 
 const FeatureSection = () => {
   return (
-    <section className="py-20 relative">
+    <section className="py-20 px-5 relative">
       <div className="container mx-auto text-center">
-        <h2 className="text-6xl font-bold mb-4">Time management, simplified.</h2>
-        <p className="text-xl text-gray-500 mb-12">Designed for focus. Built for speed.</p>
+        <h2 className="text-4xl md:text-6xl font-bold mb-4">Time management, simplified.</h2>
+        <p className="text-lg md:text-xl text-gray-500 mb-12">Designed for focus. Built for speed.</p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <FeatureCard
             className="md:col-span-2"

@@ -18,7 +18,7 @@ const qaData = [
 
 const QASection = () => {
   return (
-    <section className="py-[200px] bg-white">
+    <section className="py-16 md:py-24 bg-white">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-12 text-center">
           Questions & answers

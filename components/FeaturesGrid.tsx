@@ -11,10 +11,10 @@ const GridCard = ({ title, description, visual, className }: { title: string, de
 
 const FeaturesGrid = () => {
   return (
-    <section className="py-20">
+    <section className="py-20 px-5">
 
       <div className="container mx-auto text-center">
-        <h2 className="text-6xl font-bold mb-12">Work and life, playing nice.</h2>
+        <h2 className="text-4xl md:text-6xl font-bold mb-12">Work and life, playing nice.</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <GridCard
             className="md:col-span-3"
