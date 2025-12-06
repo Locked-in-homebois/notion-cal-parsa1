@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link'; // Import Link
 
 const Hero = () => {
   return (
@@ -13,9 +14,12 @@ const Hero = () => {
         <p className="text-lg text-gray-800 max-w-md md:max-w-lg mb-8">
           All of your commitments, now in one place. Meet the beautifully designed, fully integrated calendar for your work and life.
         </p>
-        <button className="bg-black text-white px-6 py-3 rounded-lg font-semibold">
+        <Link
+          href="#"
+          className="bg-black text-white px-6 py-3 rounded-lg font-semibold inline-block"
+        >
           Get Notion Calendar free
-        </button>
+        </Link>
       </div>
     </div>
   );
