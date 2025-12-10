@@ -23,7 +23,7 @@ const QASection = () => {
         <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-12 text-center">
           Questions & answers
         </h2>
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-5xl mx-auto transition-all duration-300">
           {qaData.map((item, index) => (
             <QAItem key={index} question={item.question} answer={item.answer} />
           ))}
