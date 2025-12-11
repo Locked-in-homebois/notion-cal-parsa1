@@ -20,6 +20,10 @@ const Hero = () => {
         >
           Get Notion Calendar free
         </Link>
+
+        <div className='pointer-events-auto'>
+          how is life?
+        </div>
       </div>
     </div>
   );

@@ -6,10 +6,12 @@ import IntegrationsGrid from '@/components/IntegrationsGrid';
 import DownloadSection from '@/components/DownloadSection';
 import QASection from '@/components/QA/QASection';
 import FloatingBox from '@/components/general/FloatingBox';
+import Rotate from '@/components/animate/rotate';
 
 export default function Home() {
   return (
     <main className="relative max-w-[1440px] flex flex-col mx-auto overflow-hidden">
+      <Rotate />
       <FloatingBox
         color="red"
         icon="laptop"
