@@ -10,21 +10,14 @@ import FloatingBox from '@/components/general/FloatingBox';
 
 export default function Home() {
   return (
-    <main className="relative overflow-hidden">
+    <main className="relative max-w-[1440px] flex flex-col mx-auto overflow-hidden">
       <FloatingBox
-        color="bg-red-50"
-        accentColor="bg-red-500"
-        icon={<Image src="/Icons/laptop.svg" alt="Laptop Icon" width={24} height={24} />}
-        className="hidden md:block right-20 top-20"
+        color="red"
+        icon="laptop"
+        className="md:right-20 md:top-20 top-30 left-5"
       />
       <Hero />
       <VideoPlaceholder />
-      <FloatingBox
-        color="bg-blue-100"
-        icon={<Image src="/Icons/laptop.svg" alt='laptop' width={24} height={24} />}
-        accentColor='bg-blue-500'
-        className='hidden md:block right-[150px] top-[1000px]'
-      />
       <FeatureSection />
       <FeaturesGrid />
       <IntegrationsGrid />
