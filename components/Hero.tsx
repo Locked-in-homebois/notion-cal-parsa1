@@ -4,7 +4,7 @@ import Link from 'next/link'; // Import Link
 
 const Hero = () => {
   return (
-    <div className="relative flex flex-col items-center justify-center min-h-screen text-center">
+    <div className="relative flex flex-col items-center justify-center h-[1000px] text-center">
       <div className="relative z-10 flex flex-col items-center px-4">
         <div className="w-16 h-16 bg-white border-2 border-black rounded-lg flex items-center justify-center mb-4">
           <span className="text-black text-3xl font-bold">4</span>

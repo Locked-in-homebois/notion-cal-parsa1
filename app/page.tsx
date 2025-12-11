@@ -5,7 +5,6 @@ import FeaturesGrid from '@/components/FeaturesGrid';
 import IntegrationsGrid from '@/components/IntegrationsGrid';
 import DownloadSection from '@/components/DownloadSection';
 import QASection from '@/components/QA/QASection';
-import Image from 'next/image';
 import FloatingBox from '@/components/general/FloatingBox';
 
 export default function Home() {

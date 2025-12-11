@@ -80,7 +80,6 @@ const Navbar = () => {
       {/* 2. Mobile Dropdown Menu */}
       {isOpen && (
         <div className="md:hidden absolute top-full left-0 w-full bg-white border-b shadow-xl flex flex-col px-6 py-6 h-[calc(100vh-60px)] overflow-y-auto">
-          
           <div className="flex flex-col gap-6 text-[16px] font-medium text-neutral-600">
             {navItems.map((item) => (
               <Link
@@ -95,7 +94,6 @@ const Navbar = () => {
           </div>
 
           <div className="w-full h-px bg-neutral-100 my-8"></div>
-
           <div className="flex flex-col gap-4">
             <Link 
               href="#" 
