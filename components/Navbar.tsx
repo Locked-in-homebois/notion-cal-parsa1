@@ -4,6 +4,8 @@ import { useState } from "react";
 import Link from "next/link";
 import { Menu, X, Calendar } from "lucide-react";
 import Image from "next/image";
+import { motion } from "motion/react"
+
 
 const navItems = [
   { label: "Notion", href: "#" },
@@ -20,6 +22,8 @@ const Navbar = () => {
 
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => setIsOpen((prev) => !prev);
+
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
     <nav className="sticky top-0 z-50 bg-white text-black shadow-sm border-b ">
@@ -38,13 +42,22 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="flex gap-5 justify-self-center text-neutral-700 whitespace-nowrap">
-          {navItems.map((item) => (
+          {navItems.map((item, index) => (
             <Link
               key={item.label}
               href={item.href}
-              className="hover:text-black transition-colors"
+              className="relative px-2 py-1 hover:text-black transition-colors"
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
             >
-              {item.label}              
+              {hoveredIndex === index && (
+                <motion.span
+                  layoutId="nav-pill" // <--- THE MAGIC WORD
+                  className="absolute inset-0 bg-gray-100 rounded-lg -z-10" // -z-10 puts it BEHIND text
+                  transition={{ type: "spring", duration: 0.6 }}
+                />
+              )}
+              {item.label}
             </Link>
           ))}
         </div>
@@ -69,8 +82,8 @@ const Navbar = () => {
             className="w-16 h-auto"
           />
         </Link>
-        <button 
-          onClick={toggleMenu} 
+        <button
+          onClick={toggleMenu}
           className="text-neutral-600 focus:outline-none active:scale-95 transition-transform"
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -95,8 +108,8 @@ const Navbar = () => {
 
           <div className="w-full h-px bg-neutral-100 my-8"></div>
           <div className="flex flex-col gap-4">
-            <Link 
-              href="#" 
+            <Link
+              href="#"
               onClick={() => setIsOpen(false)}
               className="text-[16px] font-medium text-neutral-600 hover:text-black"
             >

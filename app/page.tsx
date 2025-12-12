@@ -10,7 +10,6 @@ import QASection from '@/components/QA/QASection';
 export default function Home() {
   return (
     <main className="relative max-w-[1440px] flex flex-col mx-auto overflow-hidden">
-
       <Hero />
       <VideoPlaceholder />
       <FeatureSection />
