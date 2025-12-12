@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
-import { motion } from "motion/react"
+import { motion, AnimatePresence, type Variants } from "motion/react"
 
 
 const navItems = [
@@ -17,6 +17,28 @@ const navItems = [
   { label: "Explore", href: "#" },
   { label: "Request a demo", href: "#" },
 ];
+
+const menuVars: Variants = {
+  initial: {
+    y: "-100%",
+  },
+  animate: {
+    y: "0%",
+    transition: {
+      duration: 0.4,
+      type: "spring",
+      bounce: 0.2
+    }
+  },
+  exit: {
+    y: "-100%",
+    transition: {
+      duration: 0.3,
+      type: "spring",
+      bounce: 0
+    }
+  }
+}
 
 const Navbar = () => {
 
@@ -74,7 +96,7 @@ const Navbar = () => {
       </div>
 
       {/* Mobile menu */}
-      <div className="md:hidden flex items-center justify-between px-4 py-3">
+      <div className="md:hidden bg-white flex items-center justify-between px-4 py-3">
         <Link href={"/"} onClick={() => setIsOpen(false)}>
           <Image
             alt="logo"
@@ -93,36 +115,43 @@ const Navbar = () => {
       </div>
 
       {/* 2. Mobile Dropdown Menu */}
-      {isOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-white border-b shadow-xl flex flex-col px-6 py-6 h-[calc(100vh-60px)] overflow-y-auto">
-          <div className="flex flex-col gap-6 text-[16px] font-medium text-neutral-600">
-            {navItems.map((item) => (
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            variants={menuVars}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            className="md:hidden -z-10 absolute top-full left-0 w-full bg-white border-b shadow-xl flex flex-col px-6 py-6 h-[calc(100vh-60px)] overflow-y-auto"
+          >
+            <div className="flex flex-col gap-6 text-[16px] font-medium text-neutral-600">
+              {navItems.map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  onClick={() => setIsOpen(false)}
+                  className="hover:text-black transition-colors"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+            <div className="w-full h-px bg-neutral-100 my-8"></div>
+            <div className="flex flex-col gap-4">
               <Link
-                key={item.label}
-                href={item.href}
+                href="#"
                 onClick={() => setIsOpen(false)}
-                className="hover:text-black transition-colors"
+                className="text-[16px] font-medium text-neutral-600 hover:text-black"
               >
-                {item.label}
+                Log in
               </Link>
-            ))}
-          </div>
-
-          <div className="w-full h-px bg-neutral-100 my-8"></div>
-          <div className="flex flex-col gap-4">
-            <Link
-              href="#"
-              onClick={() => setIsOpen(false)}
-              className="text-[16px] font-medium text-neutral-600 hover:text-black"
-            >
-              Log in
-            </Link>
-            <button className="w-full bg-black text-white rounded-lg py-3 font-medium text-sm hover:bg-neutral-800 transition-colors">
-              Get Notion Calendar free
-            </button>
-          </div>
-        </div>
-      )}
+              <button className="w-full bg-black text-white rounded-lg py-3 font-medium text-sm hover:bg-neutral-800 transition-colors">
+                Get Notion Calendar free
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };
