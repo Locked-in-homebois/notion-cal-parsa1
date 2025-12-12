@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X, Calendar } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import { motion } from "motion/react"
 
@@ -41,19 +41,21 @@ const Navbar = () => {
             />
           </Link>
         </div>
-        <div className="flex gap-5 justify-self-center text-neutral-700 whitespace-nowrap">
+        <div
+          className="flex gap-5 justify-self-center text-neutral-700 whitespace-nowrap"
+          onMouseLeave={() => setHoveredIndex(null)}
+        >
           {navItems.map((item, index) => (
             <Link
               key={item.label}
               href={item.href}
               className="relative px-2 py-1 hover:text-black transition-colors"
               onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
             >
               {hoveredIndex === index && (
                 <motion.span
-                  layoutId="nav-pill" // <--- THE MAGIC WORD
-                  className="absolute inset-0 bg-gray-100 rounded-lg -z-10" // -z-10 puts it BEHIND text
+                  layoutId="nav-pill"
+                  className="absolute inset-0 bg-gray-200 rounded-lg -z-10"
                   transition={{ type: "spring", duration: 0.6 }}
                 />
               )}
@@ -119,7 +121,6 @@ const Navbar = () => {
               Get Notion Calendar free
             </button>
           </div>
-
         </div>
       )}
     </nav>
