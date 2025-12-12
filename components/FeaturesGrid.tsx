@@ -1,12 +1,20 @@
+'use client'
+
 import React from 'react';
-import Image from 'next/image';
+import { motion } from "motion/react"
 
 const GridCard = ({ title, description, visual, className }: { title: string, description: string, visual: React.ReactNode, className?: string }) => (
-  <div className={`bg-white border rounded-xl shadow-sm p-8 ${className}`}>
+  <motion.div
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: "-200px" }}
+    transition={{ duration: 0.5, ease: "easeOut" }}
+
+    className={`bg-white border rounded-xl shadow-sm p-8 ${className}`}>
     <h3 className="text-2xl font-semibold mb-2">{title}</h3>
     <p className="text-gray-600 mb-6">{description}</p>
     {visual}
-  </div>
+  </motion.div>
 );
 
 const FeaturesGrid = () => {
