@@ -6,6 +6,7 @@ import IntegrationsGrid from "@/components/IntegrationsGrid";
 import DownloadSection from "@/components/DownloadSection";
 import QASection from "@/components/QA/QASection";
 import PlanCard from "@/components/general/PlanCard";
+import Toast from "@/components/test/Toast";
 // import Like from "@/components/general/Like";
 // import Pop from "@/components/simplemodal";
 // import Toggle from "@/components/general/Toggle";
@@ -15,6 +16,7 @@ import PlanCard from "@/components/general/PlanCard";
 export default function Home() {
   return (
     <main className="relative mx-auto flex max-w-[1440px] flex-col overflow-hidden">
+      <Toast />
       <Hero />
       <PlanCard />
       {/* <Toggle />
