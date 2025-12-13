@@ -60,7 +60,7 @@ const Pop = () => {
                         <motion.div
                             variants={modalVars}
                             onClick={(e) => e.stopPropagation()}
-                            className="bg-white p-8 max-w-sm text-center rounded-full border-2 border-red-700 ">
+                            className="bg-white p-8 max-w-sm text-center rounded-2xl ">
                             <h2 className="text-2xl font-bold mb-4 ">SYBAU AMK</h2>
                             <p className="text-gray-600 mb-6 ">
                                 HANG URSELF

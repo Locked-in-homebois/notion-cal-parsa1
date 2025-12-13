@@ -1,29 +1,31 @@
-
-import QAItem from './QAItem';
+import QAItem from "./QAItem";
 
 const qaData = [
   {
-    question: 'Which calendar provider(s) is Notion Calendar compatible with?',
-    answer: 'Currently, Notion Calendar integrates and syncs with Google Calendar accounts and Apple iCloud-synced Calendars. Adding support for other calendar providers such as Outlook is on our roadmap.',
+    question: "Which calendar provider(s) is Notion Calendar compatible with?",
+    answer:
+      "Currently, Notion Calendar integrates and syncs with Google Calendar accounts and Apple iCloud-synced Calendars. Adding support for other calendar providers such as Outlook is on our roadmap.",
   },
   {
-    question: 'Is Notion Calendar available on mobile devices?',
-    answer: 'Yes, Notion Calendar is available for iPhone and Android devices. We know some users are looking for an optimized version for tablet devices, such as iPad, and are working to make Notion Calendar the best experience on all platforms.',
+    question: "Is Notion Calendar available on mobile devices?",
+    answer:
+      "Yes, Notion Calendar is available for iPhone and Android devices. We know some users are looking for an optimized version for tablet devices, such as iPad, and are working to make Notion Calendar the best experience on all platforms.",
   },
   {
-    question: 'Does Notion Calendar bring Google Calendar sync to Notion?',
-    answer: 'Notion Calendar allows you to view your Notion database items alongside your Google Calendar events. This offers a streamlined way to see project timelines and task due dates alongside other scheduled events.',
+    question: "Does Notion Calendar bring Google Calendar sync to Notion?",
+    answer:
+      "Notion Calendar allows you to view your Notion database items alongside your Google Calendar events. This offers a streamlined way to see project timelines and task due dates alongside other scheduled events.",
   },
 ];
 
 const QASection = () => {
   return (
-    <section className="py-16 md:py-24 bg-white">
+    <section className="bg-white py-16 md:py-24">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-12 text-center">
+        <h2 className="mb-12 text-center text-4xl font-bold text-gray-800 md:text-5xl">
           Questions & answers
         </h2>
-        <div className="max-w-5xl mx-auto transition-all duration-300">
+        <div className="mx-auto max-w-5xl transition-all duration-300">
           {qaData.map((item, index) => (
             <QAItem key={index} question={item.question} answer={item.answer} />
           ))}

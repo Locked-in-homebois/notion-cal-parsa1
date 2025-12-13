@@ -1,7 +1,8 @@
-'use client';
+"use client";
 
-import { motion, AnimatePresence, Variants } from 'motion/react';
-import { useState } from 'react';
+import { motion, AnimatePresence, Variants } from "motion/react";
+import { useState } from "react";
+import { Plus } from "lucide-react";
 
 interface QAItemProps {
   question: string;
@@ -11,7 +12,7 @@ interface QAItemProps {
 const menuVars: Variants = {
   initial: {
     height: 0,
-    opacity: 0
+    opacity: 0,
   },
   animate: {
     height: "auto",
@@ -19,8 +20,8 @@ const menuVars: Variants = {
     transition: {
       duration: 0.2,
       type: "spring",
-      bounce: 0.2
-    }
+      bounce: 0.2,
+    },
   },
   exit: {
     height: 0,
@@ -28,10 +29,10 @@ const menuVars: Variants = {
     transition: {
       duration: 0.2,
       type: "spring",
-      bounce: 0.2
-    }
-  }
-}
+      bounce: 0.2,
+    },
+  },
+};
 
 const QAItem: React.FC<QAItemProps> = ({ question, answer }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,41 +40,17 @@ const QAItem: React.FC<QAItemProps> = ({ question, answer }) => {
   return (
     <div className="border-t border-gray-200 py-4">
       <button
-        type="button"
-        className="flex w-full justify-between items-center cursor-pointer text-left"
-        onClick={() => setIsOpen((prev) => !prev)}
+        onClick={() => setIsOpen(!isOpen)}
+        className="flex w-full items-center justify-between text-left"
       >
-        <h3 className="text-lg font-medium text-gray-800">{question}</h3>
-        <div
-          className={`ml-4 transform transition-transform duration-300 ${isOpen ? 'rotate-45' : 'rotate-0'
-            }`}
+        <h1 className="text-lg font-medium text-gray-600">{question}</h1>
+        <motion.div
+          animate={{ rotate: isOpen ? 45 : 0 }}
+          transition={{ duration: 0.3, ease: "backOut" }}
         >
-          {/* Single icon that rotates */}
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M12 5V19"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <path
-              d="M5 12H19"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </div>
+          <Plus size={24} className="text-gray-800" />
+        </motion.div>
       </button>
-
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -81,10 +58,11 @@ const QAItem: React.FC<QAItemProps> = ({ question, answer }) => {
             initial="initial"
             animate="animate"
             exit="exit"
-            className="mt-4 text-gray-600 overflow-hidden"
+            className="overflow-hidden text-gray-600"
           >
-            <p className='pt-4'>{answer}</p>
-          </motion.div>)}
+            <p className="pt-4">{answer}</p>
+          </motion.div>
+        )}
       </AnimatePresence>
     </div>
   );

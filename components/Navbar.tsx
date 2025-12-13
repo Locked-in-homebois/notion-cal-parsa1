@@ -4,8 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
-import { motion, AnimatePresence, type Variants } from "motion/react"
-
+import { motion, AnimatePresence, type Variants } from "motion/react";
 
 const navItems = [
   { label: "Notion", href: "#" },
@@ -27,57 +26,55 @@ const menuVars: Variants = {
     transition: {
       duration: 0.4,
       type: "spring",
-      bounce: 0.2
-    }
+      bounce: 0.2,
+    },
   },
   exit: {
     y: "-100%",
     transition: {
       duration: 0.3,
       type: "spring",
-      bounce: 0
-    }
-  }
-}
+      bounce: 0,
+    },
+  },
+};
 
 const Navbar = () => {
-
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => setIsOpen((prev) => !prev);
 
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <nav className="sticky top-0 z-50 bg-white text-black shadow-sm border-b ">
+    <nav className="sticky top-0 z-50 border-b bg-white text-black shadow-sm">
       {/* DESKTOP */}
-      <div className="hidden md:grid grid-cols-3 w-full items-center justify-between py-2 px-4 mx-auto max-w-[1440px] text-[13px] tracking-normal">
-        <div className="justify-self-start flex gap-5">
+      <div className="mx-auto hidden w-full max-w-[1440px] grid-cols-3 items-center justify-between px-4 py-2 text-[13px] tracking-normal md:grid">
+        <div className="flex gap-5 justify-self-start">
           <Link href={"/"}>
             <Image
               alt="logo"
               src="/next.svg"
               width={50}
               height={50}
-              className="w-20 h-auto"
-
+              className="h-auto w-20"
             />
           </Link>
         </div>
         <div
-          className="flex gap-5 justify-self-center text-neutral-700 whitespace-nowrap"
+          className="flex gap-5 justify-self-center whitespace-nowrap text-neutral-700"
           onMouseLeave={() => setHoveredIndex(null)}
         >
           {navItems.map((item, index) => (
             <Link
               key={item.label}
               href={item.href}
-              className="relative px-2 py-1 hover:text-black transition-colors"
+              className="relative px-2 py-1 transition-colors hover:text-black"
               onMouseEnter={() => setHoveredIndex(index)}
             >
               {hoveredIndex === index && (
                 <motion.span
                   layoutId="nav-pill"
-                  className="absolute inset-0 bg-gray-200 rounded-lg -z-10"
+                  className="absolute inset-0 -z-10 rounded-lg bg-gray-200"
                   transition={{ type: "spring", duration: 0.6 }}
                 />
               )}
@@ -85,30 +82,33 @@ const Navbar = () => {
             </Link>
           ))}
         </div>
-        <div className="flex gap-5 items-center justify-self-end">
+        <div className="flex items-center gap-5 justify-self-end">
           <Link href={""} className="">
             Log in
           </Link>
-          <Link href={""} className="inline-block bg-black text-white rounded-lg hover:scale-105 transition-transform duration-300 px-2 py-1">
+          <Link
+            href={""}
+            className="inline-block rounded-lg bg-black px-2 py-1 text-white transition-transform duration-300 hover:scale-105"
+          >
             Get Notion Calendar free
           </Link>
         </div>
       </div>
 
       {/* Mobile menu */}
-      <div className="md:hidden bg-white flex items-center justify-between px-4 py-3">
+      <div className="flex items-center justify-between bg-white px-4 py-3 md:hidden">
         <Link href={"/"} onClick={() => setIsOpen(false)}>
           <Image
             alt="logo"
             src="/next.svg"
             width={40}
             height={40}
-            className="w-16 h-auto"
+            className="h-auto w-16"
           />
         </Link>
         <button
           onClick={toggleMenu}
-          className="text-neutral-600 focus:outline-none active:scale-95 transition-transform"
+          className="text-neutral-600 transition-transform focus:outline-none active:scale-95"
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -122,7 +122,7 @@ const Navbar = () => {
             initial="initial"
             animate="animate"
             exit="exit"
-            className="md:hidden -z-10 absolute top-full left-0 w-full bg-white border-b shadow-xl flex flex-col px-6 py-6 h-[calc(100vh-60px)] overflow-y-auto"
+            className="absolute top-full left-0 -z-10 flex h-[calc(100vh-60px)] w-full flex-col overflow-y-auto border-b bg-white px-6 py-6 shadow-xl md:hidden"
           >
             <div className="flex flex-col gap-6 text-[16px] font-medium text-neutral-600">
               {navItems.map((item) => (
@@ -130,13 +130,13 @@ const Navbar = () => {
                   key={item.label}
                   href={item.href}
                   onClick={() => setIsOpen(false)}
-                  className="hover:text-black transition-colors"
+                  className="transition-colors hover:text-black"
                 >
                   {item.label}
                 </Link>
               ))}
             </div>
-            <div className="w-full h-px bg-neutral-100 my-8"></div>
+            <div className="my-8 h-px w-full bg-neutral-100"></div>
             <div className="flex flex-col gap-4">
               <Link
                 href="#"
@@ -145,7 +145,7 @@ const Navbar = () => {
               >
                 Log in
               </Link>
-              <button className="w-full bg-black text-white rounded-lg py-3 font-medium text-sm hover:bg-neutral-800 transition-colors">
+              <button className="w-full rounded-lg bg-black py-3 text-sm font-medium text-white transition-colors hover:bg-neutral-800">
                 Get Notion Calendar free
               </button>
             </div>
