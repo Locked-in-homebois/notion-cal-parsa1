@@ -8,7 +8,7 @@ const Like = () => {
   const [isOn, setIsOn] = useState(false);
 
   return (
-    <div className="flex h-100 items-center justify-center">
+    <div className="flex h-[100px] items-center justify-center">
       <motion.div
         layout
         animate={{
