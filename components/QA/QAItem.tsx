@@ -1,10 +1,36 @@
 'use client';
 
+import { motion, AnimatePresence, Variants } from 'motion/react';
 import { useState } from 'react';
 
 interface QAItemProps {
   question: string;
   answer: string;
+}
+
+const menuVars: Variants = {
+  initial: {
+    height: 0,
+    opacity: 0
+  },
+  animate: {
+    height: "auto",
+    opacity: 1,
+    transition: {
+      duration: 0.2,
+      type: "spring",
+      bounce: 0.2
+    }
+  },
+  exit: {
+    height: 0,
+    opacity: 0,
+    transition: {
+      duration: 0.2,
+      type: "spring",
+      bounce: 0.2
+    }
+  }
 }
 
 const QAItem: React.FC<QAItemProps> = ({ question, answer }) => {
@@ -48,12 +74,18 @@ const QAItem: React.FC<QAItemProps> = ({ question, answer }) => {
         </div>
       </button>
 
-      <div
-        className={`mt-4 text-gray-600 overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'
-          }`}
-      >
-        <p>{answer}</p>
-      </div>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            variants={menuVars}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            className="mt-4 text-gray-600 overflow-hidden"
+          >
+            <p className='pt-4'>{answer}</p>
+          </motion.div>)}
+      </AnimatePresence>
     </div>
   );
 };
