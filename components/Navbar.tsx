@@ -54,9 +54,9 @@ const Navbar = () => {
             <Image
               alt="logo"
               src="/next.svg"
-              width={50}
+              width={150}
               height={50}
-              className="h-auto w-20"
+              className="w-20"
             />
           </Link>
         </div>

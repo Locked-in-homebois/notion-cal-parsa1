@@ -7,21 +7,22 @@ import DownloadSection from "@/components/DownloadSection";
 import QASection from "@/components/QA/QASection";
 import PlanCard from "@/components/general/PlanCard";
 import Toast from "@/components/test/Toast";
-// import Like from "@/components/general/Like";
-// import Pop from "@/components/simplemodal";
-// import Toggle from "@/components/general/Toggle";
+import Like from "@/components/general/Like";
+import Pop from "@/components/simplemodal";
+import Toggle from "@/components/general/Toggle";
 
-// import FloatingBox from '@/components/general/FloatingBox';
+import FloatingBox from "@/components/general/FloatingBox";
 
 export default function Home() {
   return (
     <main className="relative mx-auto flex max-w-[1440px] flex-col overflow-hidden">
       <Toast />
+      <FloatingBox color="blue" icon="laptop" className="top-20 right-50" />
       <Hero />
       <PlanCard />
-      {/* <Toggle />
-      <Pop /> */}
-      {/* <Like /> */}
+      <Toggle />
+      <Pop />
+      <Like />
       <VideoPlaceholder />
       <FeatureSection />
       <FeaturesGrid />

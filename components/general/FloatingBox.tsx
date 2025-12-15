@@ -1,5 +1,8 @@
-import React from 'react';
-import Image from 'next/image';
+"use client";
+
+import React from "react";
+import Image from "next/image";
+import { motion } from "motion/react";
 
 interface FloatingBoxProps {
   color: string;
@@ -7,23 +10,39 @@ interface FloatingBoxProps {
   className?: string;
 }
 
-const FloatingBox: React.FC<FloatingBoxProps> = ({ color, icon, className }) => {
+const FloatingBox: React.FC<FloatingBoxProps> = ({
+  color,
+  icon,
+  className,
+}) => {
   return (
     <div className={`absolute ${className}`}>
-      <div className="relative md:w-32 md:h-20 w-20 h-14 rounded-lg shadow-sm flex overflow-hidden -z-50">
-        <div className={`md:w-4 w-2 bg-${color}-500`}></div>
-        <div className={`flex-1 bg-${color}-200 flex items-center justify-center`}>
-
+      <motion.div
+        viewport={{ once: true, amount: 1 }}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+          transition: {
+            duration: 0.3,
+            ease: "easeOut",
+          },
+        }}
+        className="relative -z-50 flex h-14 w-20 overflow-hidden rounded-lg shadow-sm md:h-20 md:w-32"
+      >
+        <div className={`w-2 md:w-4 bg-${color}-500`}></div>
+        <div
+          className={`flex-1 bg-${color}-200 flex items-center justify-center`}
+        >
           <Image
             src={`/Icons/${icon}.svg`}
             alt={`${icon} Icon`}
             width={24}
             height={24}
-            className='md:w-[60px] w-10 h-auto'
+            className="h-auto w-10 md:w-[60px]"
           />
-
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
